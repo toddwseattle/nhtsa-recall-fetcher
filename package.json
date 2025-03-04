@@ -1,0 +1,27 @@
+{
+  "name": "nhtsa-recall-fetcher",
+  "version": "1.0.0",
+  "description": "Command line tool to fetch NHTSA recall details",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "get-nhtsa-detail": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node --esm src/index.ts",
+    "run": "npm run build && node dist/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "commander": "^11.1.0",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}
