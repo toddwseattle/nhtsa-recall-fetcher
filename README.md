@@ -12,19 +12,19 @@ npm run build
 ## Usage
 
 ```bash
-node dist/index.js --input <input-csv-file> --output <output-csv-file> [--debug]
+get-nhtsa-detail --input <input-csv-file> --output <output-csv-file> [--debug]
 ```
 
 Example:
 
 ```bash
-node dist/index.js --input sample-recalls.csv --output detailed-recalls.csv
+get-nhtsa-detail --input [sample-recalls.csv](sample-recalls.csv) --output detailed-recalls.csv
 ```
 
 With debug mode:
 
 ```bash
-node dist/index.js --input sample-recalls.csv --output detailed-recalls.csv --debug
+get-nhtsa-detail --input [sample-recalls.csv](sample-recalls.csv) --output detailed-recalls.csv --debug
 ```
 
 ## Input CSV Format
@@ -39,13 +39,11 @@ Example:
 
 ## Output
 
-The tool will generate a CSV file containing all fields from the NHTSA API response for each recall ID.
+The tool will generate a CSV file containing all fields from the NHTSA API response for each recall ID. The file
+[sample-recalls.csv](sample-recalls.csv) contains a sample input file and [out-recalls.csv](out-recalls.csv) contains the output file generated from the sample input file.
 
 ## API Details
 
-The tool tries multiple NHTSA API endpoints to retrieve recall information:
+The tool uses this NHTSA API endpoint to retrieve recall information:
 
-1. Primary endpoint: `https://api.nhtsa.gov/recalls/campaignNumber/{formattedId}`
-2. Alternative endpoint: `https://api.nhtsa.gov/recalls/recallsByNHTSACampaignNumber?campaignNumber={nhtsaId}`
-
-The tool automatically formats the NHTSA ID as required by the API and tries alternative endpoints if the primary one fails.
+ `https://api.nhtsa.gov/recalls/recallsByNHTSACampaignNumber?campaignNumber={nhtsaId}`
